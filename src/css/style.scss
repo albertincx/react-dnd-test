@@ -1,0 +1,107 @@
+$itemWidth: 110px;
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  & > div {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 5px;
+    &:last-child {
+      padding-right: 0;
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  button {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background: royalblue;
+    border: none;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+  form {
+    button {
+      margin: 10px 10px 0 0;
+    }
+  }
+  .modal {
+    padding: 10px;
+  }
+
+  .list {
+    margin: 10px 0;
+    & > div {
+      margin: 10px 0;
+      padding: 10px;
+      background: #ddd;
+      width: $itemWidth;
+      height: $itemWidth;
+      position: relative;
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.modal {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1rem;
+    background-clip: padding-box;
+    border: 1px solid #909090;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #000;
+  }
+
+  ul{
+    max-width:600px;
+  }
+  li{
+    list-style: none;
+    float:left;
+    margin:0 10px 10px 0;
+    width:100px;
+  }
+  li:nth-child(even){
+    margin-right:0;
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: rgba(117, 117, 117, 0.52);
+}

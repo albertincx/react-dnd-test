@@ -90,7 +90,7 @@ export function DropComponent (WrappedComponent) {
       const items = this.state.items
       if (!item.text) item.text = `Text${items.length}`
       item.type = WrappedComponent.ITEM_TYPE
-      item.created = new Date()
+      if(!item.created) item.created = new Date()
       item.index = items.length
       items.push(item)
       items.map((item, i) => item.index = i)

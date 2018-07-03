@@ -60,18 +60,19 @@ export function DropComponent (WrappedComponent) {
       let clearContainerType = ''
       if (d && d.length) {
         clearContainerType = d[0].type
-        let itemIndex = this.state.items.length
         d.map((item) => {
-          //item.index = itemIndex
           item.type = WrappedComponent.ITEM_TYPE
           item.moved = new Date()
-          itemIndex++
         })
         const items = this.state.items.concat(d)
-        items.map((item, i) => item.index = i)
-        this.setState({items})
+        this.saveItems(items)
         removeItem(clearContainerType, -1)
       }
+    }
+
+    saveItems (items) {
+      items.map((item, i) => item.index = i)
+      this.setState({items})
     }
 
     moveAll (type) {
@@ -90,12 +91,10 @@ export function DropComponent (WrappedComponent) {
       const items = this.state.items
       if (!item.text) item.text = `Text${items.length}`
       item.type = WrappedComponent.ITEM_TYPE
-      if(!item.created) item.created = new Date()
+      if (!item.created) item.created = new Date()
       item.index = items.length
       items.push(item)
-      items.map((item, i) => item.index = i)
-
-      this.setState({items})
+      this.saveItems(items)
     }
 
     render () {

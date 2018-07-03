@@ -27,7 +27,10 @@ class StaticModal extends React.Component {
       this.isOpen = false
       return
     }
-    if ((event.target !== this.modal)) {
+    const el = event.target
+    if(el === this.modal || el.closest('.modal') === this.modal){
+      //
+    } else {
       this.props.dispatch({type: 'hide'})
     }
   }

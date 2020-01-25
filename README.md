@@ -2,4 +2,4 @@
 
 demo 
 
-https://safiullin.io/dnd/
+https://safiullin.io/projects/dnd/
